@@ -6,13 +6,14 @@ const UserController = require('./controllers/UserController');
 const AdsController = require('./controllers/AdsController');
 
 const Auth = require('./middlewares/Auth');
+const AuthValidator = require('./validators/AuthValidator');
 
 router.get('/ping', (req,res) => {
     res.json({pong: true});
 })
 
 router.post('/user/signin', AuthController.signin);
-router.post('user/signup', AuthController.signup);
+router.post('/user/signup', AuthValidator.signup, AuthController.signup);
 
 
 router.get('/states', Auth.private, UserController.getStates);

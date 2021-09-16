@@ -6,7 +6,7 @@ const modelSchema = new mongoose.Schema({
     email: String,
     state: String,
     passwordHash: String,
-    tokem: String
+    token: String
 })
 
 const modelName = 'User';
