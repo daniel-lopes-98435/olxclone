@@ -11,16 +11,15 @@ module.exports = {
             res.json({error: errors.mapped()});
             return;
         }
-        const data = matchedData(req)
+        const data = matchedData(req);
 
         const user = await User.findOne({
             email: data.email
-        })
+        });
 
-        console.log('User: ', user)
         if(!user){
             res.json({
-                error: { email: { msg: 'E-mail mmm ou senha inválidos' }}
+                error: { email: { msg: 'E-mail ou senha inválidos' }}
             });
             return;
         }
@@ -29,7 +28,7 @@ module.exports = {
 
         if(!match){
             res.json({
-                error: { email: { msg: 'E-mail sss ou senha inválidos' }}
+                error: { email: { msg: 'E-mail ou senha inválidos' }}
             });
             return;
         }        
