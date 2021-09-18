@@ -20,7 +20,7 @@ server.use(express.json())
 server.use(fileupload());
 server.use(express.urlencoded({extended: true}))
 
-server.use(express.static(__dirname+'/puclic'))
+server.use(express.static(__dirname+'/public'))
 
 server.use('/', apiRoutes);
 /* server.get('/ping', (req, res) => {
